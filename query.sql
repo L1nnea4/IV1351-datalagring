@@ -1,4 +1,9 @@
-'new values inserted '
+'**** please note that this is NOT all the queries we run
+we did more to see that we could for example calculate the admin and examination hours 
+    and to see that the trigger works and also to test to calculate the preparation time for a teacher
+    however, we are new to SQL and do not know how to retrieve all the query so this is just a small part 
+    of the query we have saved ****'
+    'new values inserted'
 INSERT INTO course_layout (max_students,version_number,course_id,min_students,hp,course_name)
 VALUES (200,12,1,20,15,'Databases');
 INSERT INTO course_layout (max_students,version_number,course_id,min_students,hp,course_name)
@@ -78,3 +83,4 @@ VALUES ('Professor'), ('Associate Professor'), ('Assistant Professor'), ('Lectur
 
 INSERT INTO course_instance (num_students, study_period, study_year, layout_id)
 VALUES (150,'P2',2026,2);
+
