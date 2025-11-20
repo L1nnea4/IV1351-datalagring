@@ -58,3 +58,23 @@ INSERT INTO teaching_activity (activity_name) VALUES
 ('Seminar'),
 ('Tutorials'),
 ('Others');
+
+INSERT INTO activity_factor VALUES (1.0),(1.2),(1.5),(2.0);
+
+INSERT INTO course (course_code) VALUES ('iv1350'), ('iv1351');
+
+INSERT INTO course (course_code) VALUES ('is1200'), ('id1021');
+
+INSERT INTO course_layout (max_students,version_number,course_id,min_students,hp,course_name)
+VALUES (230,12,2,40,15,'Algorithms');
+INSERT INTO course_layout (max_students,version_number,course_id,min_students,hp,course_name)
+VALUES (250,10,3,20,15,'Algorithms'),(100,9,3,10,7.5,'Algorithms'),(300,4,2,40,7.5,'Algorithms');
+
+INSERT INTO department (department_name, manager_id) 
+VALUES ('Computer Science', 1), ('Mathematics', 2), ('Physics', 3);
+
+INSERT INTO job_title (job_title) 
+VALUES ('Professor'), ('Associate Professor'), ('Assistant Professor'), ('Lecturer'), ('Researcher');
+
+INSERT INTO course_instance (num_students, study_period, study_year, layout_id)
+VALUES (150,'P2',2026,2);
