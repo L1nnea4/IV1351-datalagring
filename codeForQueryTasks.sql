@@ -150,6 +150,7 @@ JOIN
 
 WHERE 
     ci.study_year = EXTRACT(YEAR FROM CURRENT_DATE)
+     AND ci.study_period = 'Alice Smith'  
 
 GROUP BY 
     c.course_code, ci.instance_id, cl.hp, ci.study_period, ci.study_year, ci.num_students, teacher_name
