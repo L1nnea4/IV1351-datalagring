@@ -116,17 +116,68 @@ INSERT INTO allocation (activity_id, worker_id, instance_id, allocated_hours) VA
 (4,7,4,30);
 
 
-SELECT ci.instance_id,
-       c.hp,
-       ci.study_period,
-       ci.study_year,
-       SUM(pa.planned_hours) AS planned_hours,
-       (32 + 0.725 * ci.num_students) AS exam_hours,
-       (2 * c.hp + 28 + 0.2 * ci.num_students) AS admin_hours,
-       SUM(pa.planned_hours)
-         + (32 + 0.725 * ci.num_students)
-         + (2 * c.hp + 28 + 0.2 * ci.num_students) AS total_hours
-FROM course_instance ci
-JOIN course_layout c ON c.layout_id = ci.layout_id
-LEFT JOIN planned_activity pa ON pa.instance_id = ci.instance_id
-GROUP BY ci.instance_id, c.layout_id,ci.study_period, ci.study_year, ci.num_students, c.hp;
+-- 
+INSERT INTO person (personal_number, first_name, last_name, phone_no, adress_name, zip, city, country) VALUES
+('6603021312', 'Alice', 'Johnman', '0764563245', '7', '16704', 'Stockholm', 'Sweden'),
+('6801022203', 'Bob', 'Larsson', '0896753233', 'Thorildsplan 4', '13404', 'Stockholm', 'Sweden');
+INSERT INTO person (personal_number, first_name, last_name, phone_no, adress_name, zip, city, country) VALUES
+('760403205478', 'Charlie', 'Pacal', '0984567245', 'Thorildsplan 3', '13256', 'Stockholm', 'Sweden'),
+('4564789900', 'Diana', 'Owen', '0704523227', 'Thorildsplan 675', '54678', 'Stockholm', 'Sweden');
+INSERT INTO person (personal_number, first_name, last_name, phone_no, adress_name, zip, city, country) VALUES
+('8902033453', 'Meredith', 'Grey', '0709544555', 'Thorildsplan 1', '98234', 'Stockholm', 'Sweden');
+
+INSERT INTO course (course_code) VALUES
+('TH1111'),
+('OP3456'),
+('OP4444');
+INSERT INTO course (course_code) VALUES
+('IS3333'),
+('IV1300'),
+('IV1357');
+
+
+INSERT INTO course_layout (max_students,version_number,course_id,min_students,hp,course_name)
+VALUES  (200,1,7,25,7.50,'Matematik algebra'),
+(150,2,8,30,7.50,'Matematik diskret'),
+(150,1,9,20,7.50,'Envariabelanalys'),
+(200,2,10,25,7.50,'Flervariabelanalys '),
+(150,1,11,20,7.50,'Logik för dataloger'),
+(200,2,12,30,7.50,'Digital design');
+
+INSERT INTO course_instance (num_students, study_period, study_year, layout_id) VALUES
+(150,'P1',2025,9),
+(200,'P2',2025,10),
+(180,'P2',2025,11),
+(160,'P3',2025,12);
+
+
+INSERT INTO department (department_name) VALUES
+('Svenska'),
+('Kemi'),
+('Biolgoi');
+
+
+INSERT INTO employee (employment_id, email, job_id, department_id, person_id, supervisor_id) 
+VALUES 
+
+('EMID510201', 'dowen@kth.se', 1, 6, 4, NULL), 
+('EMID510211', 'cpacal@kth.se', 2, 6, 9, NULL),
+('EMID510221', 'mgrey@kth.se', 3, 6, 10, NULL),
+('EMID510231', 'blarsson@kth.se', 4, 5, 11, NULL),
+('EMID510241', 'ajohnman@kth.se', 3, 5, 13, NULL),
+('EMID510251', 'ehunt@kth.se', 5, 5, 12, NULL)
+
+
+INSERT INTO salary (start_date, worker_id, salary) VALUES
+('2025-01-19', 9, 55000),
+('2025-01-01', 24, 72000),
+('2025-01-01', 25, 55000),
+('2025-01-01', 26, 72000),
+('2025-01-01', 27, 55000),
+('2025-01-01', 28, 72000),
+('2025-01-01', 29, 52000);
+
+
+
+
+
